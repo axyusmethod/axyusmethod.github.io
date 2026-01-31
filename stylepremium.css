@@ -1133,3 +1133,100 @@ td strong {
     color: #333;
     margin: 0 10px;
 }
+
+/* =========================================
+   MOBILE FIXES (Antigravity Added)
+   ========================================= */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        display: none; /* Hide menu items on very small screens or consider hamburger */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* Reduced from 5rem */
+        line-height: 1.1;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .wizard-premium h3 {
+        font-size: 1.4rem;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+        white-space: normal; /* Allow wrapping */
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative; /* Change from absolute to relative to prevent overlap if it wraps two lines */
+        top: 0;
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .input-group input:focus ~ label,
+    .input-group input:not(:placeholder-shown) ~ label,
+    .input-group textarea:focus ~ label,
+    .input-group textarea:not(:placeholder-shown) ~ label {
+         /* Adjust for relative positioning if needed, or rely on default flow */
+         top: 0;
+    }
+
+    .btn-card, .btn-submit, .btn-next, .btn-prev {
+        padding: 12px 10px;
+        font-size: 0.8rem;
+        width: 100%; /* Full width buttons on mobile */
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button-group button {
+        width: 100% !important;
+    }
+    
+    .premium-select {
+        font-size: 0.95rem;
+        white-space: normal;
+        text-overflow: ellipsis;
+    }
+    
+     /* Prevent horizontal scroll */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Adjust input label positioning logic for mobile to avoid overlap */
+    .input-group {
+        display: flex;
+        flex-direction: column-reverse; /* Put label above input visually if needed, or just rely on block */
+    }
+    
+    .input-group label {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin-bottom: 5px;
+        color: #888;
+    }
+    
+    .input-group input, .input-group textarea {
+        margin-top: 0;
+    }
+}
