@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario – AXYUS METHOD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero FORM-BG">
+    <h1>¿No sabés qué plan es para vos?</h1>
+</header>
+
+<section class="form-section reveal">
+
+    <p class="form-description">
+        Completá este formulario y te recomiendo **el plan ideal según tu objetivo, tu experiencia y tu disponibilidad**.
+        Te respondo personalmente.
+    </p>
+
+    <form class="axis-form" id="planForm">
+
+        <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" name="edad" required>
+        </div>
+
+        <div class="form-group">
+            <label for="objetivo">¿Cuál es tu objetivo principal?</label>
+            <select id="objetivo" name="objetivo" required>
+                <option value="">Elegir...</option>
+                <option>Perder grasa</option>
+                <option>Subir masa muscular</option>
+                <option>Mejorar rendimiento</option>
+                <option>Volver después de lesión</option>
+                <option>Tonificar / Estética</option>
+                <option>Mejorar hábitos y constancia</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="experiencia">¿Tenés experiencia entrenando?</label>
+            <select id="experiencia" name="experiencia" required>
+                <option value="">Elegir...</option>
+                <option>Soy principiante</option>
+                <option>Entreno hace poco</option>
+                <option>Tengo experiencia</option>
+                <option>Entreno fuerte hace años</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="frecuencia">¿Cuántos días podés entrenar?</label>
+            <select id="frecuencia" name="frecuencia" required>
+                <option value="">Elegir...</option>
+                <option>2 días</option>
+                <option>3 días</option>
+                <option>4 días</option>
+                <option>5 días</option>
+                <option>6 días</option>
+                <option>Flexible</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="comentarios">Contame un poco más sobre vos (opcional)</label>
+            <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-form">Enviar</button>
+
+    </form>
+
+    <p id="formMessage" class="form-success" style="display:none;">
+        ¡Gracias! Te voy a responder a la brevedad con un plan recomendado.
+    </p>
+
+</section>
+
+<footer>
+    <p>© 2025 AXYUS METHOD</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --color-bg: #0a0a0a;
+    --color-bg-sec: #111111;
+    --color-text: #ffffff;
+    --color-text-muted: #d4d4d4;
+    --color-primary: #ff5d1a;
+    /* Naranja Axyus */
+    --color-accent: #00bfff;
+    /* Azul Neón (opcional) */
+    --font-main: "Inter", sans-serif;
+    --radius-card: 22px;
+    --radius-btn: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--color-text);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+/* =========================================
+   3. HERO SECTION (ANIMACIÓN & AJUSTES)
+   ========================================= */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* 3.1 Fondo Final (NOMBREAXYUS.jpeg) */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("img/NOMBREAXYUS.jpeg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    /* Empieza invisible */
+    animation: fadeInBg 0.5s ease-in-out forwards;
+    animation-delay: 2.2s;
+    /* Aparece justo al terminar el logo */
+    z-index: 0;
+    /* SIN FILTROS NI OVERLAYS */
+}
+
+/* 3.2 Logo Intro (LOGO AXYUS METHOD.png) */
+.intro-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    animation: fadeOutIntro 0.5s ease-in-out forwards;
+    animation-delay: 2.2s;
+    pointer-events: none;
+}
+
+.intro-logo {
+    width: 60vw;
+    /* Logo GRANDE (adaptable) */
+    max-width: 600px;
+    height: auto;
+    opacity: 0;
+    animation: scaleAndFade 2.2s ease-in-out forwards;
+}
+
+/* 3.3 Contenido Hero (Texto + Botones) */
+.hero-content {
+    position: relative;
+    z-index: 5;
+    opacity: 0;
+    animation: fadeInContent 1s ease-out forwards;
+    /* Aparece fondo (2.2s) + Espera 2s = ~4.2s */
+    animation-delay: 4.2s;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    /* Sombras para leer sobre la imagen limpia */
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #eee;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.3);
+    /* Fondo sutil de contraste */
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 3.4 Animaciones Keyframes */
+@keyframes scaleAndFade {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Aparece rápido cerca */
+    85% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    /* Se mantiene presente */
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+
+    /* Se agranda y desvanece */
+}
+
+@keyframes fadeOutIntro {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeInBg {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* =========================================
+   4. ESTILOS DE COMPONENTES
+   ========================================= */
+
+/* Botones */
+.btn {
+    padding: 14px 28px;
+    border-radius: var(--radius-btn);
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ff7c3d;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 93, 26, 0.4);
+}
+
+.btn-outline {
+    padding: 12px 26px;
+    border-radius: var(--radius-btn);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   5. SECCIONES (Proceso, Beneficios, Planes)
+   ========================================= */
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 24px;
+}
+
+.line-ax {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    margin: 20px 0 40px;
+    border-radius: 2px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* Efectos Scroll (Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Listas (Proceso & Beneficios) */
+.process-list li,
+.benefits-list li {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--color-text-muted);
+    border-left: 2px solid #333;
+    padding-left: 15px;
+}
+
+.process-list li strong {
+    color: var(--color-primary);
+}
+
+/* =========================================
+   6. GRID DE PLANES
+   ========================================= */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.plan-card {
+    background: var(--color-bg-sec);
+    border: 1px solid #333;
+    border-radius: var(--radius-card);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+/* Imagen de fondo difuminada por card */
+.plan-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+/* Imágenes específicas */
+.foundation::before {
+    background-image: url("img/foundation.jpeg");
+}
+
+.momentum::before {
+    background-image: url("img/momentum.jpg");
+}
+
+.rebuild::before {
+    background-image: url("img/rebuild.jpg");
+}
+
+.evolve::before {
+    background-image: url("img/evolve.jpg");
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--color-primary);
+}
+
+.plan-card:hover::before {
+    transform: scale(1.1);
+    opacity: 0.25;
+}
+
+.plan-card h3,
+.plan-card p,
+.plan-card a {
+    position: relative;
+    z-index: 1;
+}
+
+.plan-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.plan-card p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-sm {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    align-self: flex-start;
+    transition: 0.3s;
+}
+
+.btn-sm:hover {
+    background: var(--color-primary);
+}
+
+/* Ayuda Selección */
+.help-plan {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background: #111;
+    border-radius: 20px;
+}
+
+.help-plan p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   7. TABLA COMPARATIVA
+   ========================================= */
+.comparison-table {
+    overflow-x: auto;
+    margin-top: 50px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    /* Scroll horizontal en móvil */
+}
+
+th,
+td {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+    color: #ddd;
+}
+
+th {
+    background: #1a1a1a;
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: #161616;
+}
+
+/* =========================================
+   8. FORMULARIO & CONTACTO
+   ========================================= */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 16px;
+    background: #161616;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form button {
+    padding: 16px;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #ff7c3d;
+}
+
+/* =========================================
+   9. FOOTER & WHATSAPP
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #050505;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    transition: transform 0.3s;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}

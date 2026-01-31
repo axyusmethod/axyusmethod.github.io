@@ -1,0 +1,1355 @@
+/* Import tipografía */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ======== RESET + BASE ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+   margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  
+}
+
+/* ======== GRID ======== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+/* ======== CARD ======== */
+.card {
+  background: #1a1a1a;
+  border-radius: 22px;
+  padding: 32px; /* MÁS ESPACIO INTERNO */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border: 1px solid #2b2b2b;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+  min-height: 360px; /* MÁS ALTURA PARA QUE EL TEXTO RESPPIRE */
+}
+
+/* Hover */
+.card:hover {
+  border-color: #6a5acd;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* ======== TITULOS ======== */
+.card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 18px;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+/* ======== TEXTO ======== */
+.card p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #d4d4d4;
+  text-wrap: pretty;
+}
+
+/* ======== BOTÓN ======== */
+.card a {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 10px 18px;
+  background: #6a5acd;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+
+.card a:hover {
+  background: #7d6ffe;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 420px) {
+  .card {
+    padding: 26px;
+  }
+  .card h3 {
+    font-size: 1.3rem;
+  }
+  .card p {
+    font-size: 1rem;
+  }
+}
+
+
+/* ---------------- NAVBAR ---------------- */
+
+.navbar {
+    width: 100%;
+    padding: 18px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff6a2f;
+}
+
+/* HERO */
+/* HERO PRINCIPAL */
+.hero {
+  width: 100vw;
+  height: 100vh; /* ocupa toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo del nombre completo */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background-image: url("img/NOMBREAXYUS.jpeg");
+  background-size: cover;       /* ocupa todo el contenedor */
+  background-position: center;  /* centrado */
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Logo animado encima del fondo */
+.hero-logo {
+  width: 250px;   /* ajustá según necesites */
+  height: auto;
+  z-index: 2;
+  position: relative;
+  animation: logoToName 2.5s ease forwards;
+}
+
+/* Animación del logo */
+@keyframes logoToName {
+  0%   { opacity: 0; transform: scale(0.5); }
+  30%  { opacity: 1; transform: scale(1.2); }
+  70%  { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(1.2); } /* desaparece dejando ver fondo */
+}
+
+
+
+/* Oscurecido para que el logo resalte */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 0;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes logoAppear {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+
+
+.hero h1 {
+    text-shadow: 0 0 25px rgba(255,255,255,0.25);
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    margin-top: 18px;
+    max-width: 650px;
+    font-size: 1.25rem;
+    color: #d4d4d4;
+}
+
+.hero-buttons {
+    margin-top: 32px;
+}
+
+
+/* BOTONES HERO */
+.hero-buttons {
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #00bfff; /* azul neon */
+    color: #00bfff;
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #00bfff;
+    color: #0a0a0a;
+    box-shadow: 0 0 15px rgba(0,191,255,0.7);
+}
+
+
+.btn-outline {
+    display: inline-block;
+    padding: 15px 34px;
+    border: 2px solid #ff5d1a;
+    color: #ff5d1a;
+    font-weight: 700;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 10px;
+    transition: 0.25s ease;
+}
+
+.btn-outline:hover {
+    background: #ff5d1a;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+/* ---------------- SECCIONES GENERALES ---------------- */
+
+section {
+    max-width: 1300px;
+    margin: auto;
+    padding: 6rem 2rem;
+}
+
+/* Alternancia elegante */
+section:nth-child(even) {
+    background: #111;
+}
+
+section:nth-child(odd) {
+    background: #0c0c0c;
+}
+
+/* Títulos de sección */
+section h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 1.6rem;
+    position: relative;
+    padding-left: 50px;
+}
+
+/* Línea decorativa premium */
+section h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 36px;
+    background: linear-gradient(180deg, #ff6a00, #ff3c00);
+    border-radius: 4px;
+}
+
+section p, 
+section li {
+    font-size: 1.15rem;
+    color: #cfcfcf;
+}
+
+/* Listas */
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 14px;
+}
+
+/* ---------------- FORMULARIO ---------------- */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: #141414;
+    border: 1px solid #333;
+    padding: 14px;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.contact-form textarea {
+    height: 160px;
+    resize: none;
+}
+
+.contact-form button {
+    padding: 14px;
+    border-radius: 10px;
+    background: #ff5d1a;
+    border: none;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #ff7746;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+
+/* ---------------- ANIMACIÓN SCROLL ---------------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+section {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 80px;
+}
+.reveal.show h2 {
+    animation: pulse 1.2s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.2; }
+    100% { transform: scale(1); opacity: 1; }
+}
+/* GRID DE PLANES */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas SIEMPRE */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+/* CARD DE PLAN */
+.plan-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 34px;
+    border-radius: 18px;
+    text-align: left;
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    min-height: 380px; /* ALTURA PAREJA */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* botón siempre abajo */
+}
+
+
+/* Línea luminosa a la izquierda */
+.plan-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 6px;
+    height: 50px;
+    background: linear-gradient(180deg, #ff6a00, #ff3c00);
+    border-radius: 4px;
+    opacity: 0.8;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(8px);         /* DIFUMINADO */
+    transform: scale(1.2);     /* Agranda para que el blur no deje bordes */
+    opacity: 0.35;             /* Oscurecido leve */
+
+    z-index: 0;
+}
+/* Capa oscura encima de la imagen */
+.plan-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.50);  /* OSCURECIDO PARA LEER BIEN */
+    z-index: 1;
+}
+/* Hover pro */
+.plan-card:hover {
+    transform: translateY(-6px);
+    border-color: #ff5d1a;
+    box-shadow: 0 0 20px rgba(255, 90, 20, 0.2);
+}
+
+/* Título */
+.plan-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: white;
+}
+
+/* Descripción */
+.plan-card p {
+    color: #cccccc;
+    margin-bottom: 20px;
+    text-shadow: 0 0 12px rgba(255,255,255,0.18);
+
+
+}
+
+/* BOTÓN CHICO DEL CARD */
+.btn-sm {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff5d1a;
+    color: white;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-sm:hover {
+    background: #ff7c3d;
+}
+@media (max-width: 900px) {
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Imagen difuminada para cada card */
+.plan-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(4.5px) brightness(0.45);
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+.plan-card:hover::after {
+    transform: scale(1.12); /* zoom delicado */
+}
+/* Hacemos que el texto quede encima */
+.plan-card * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Imagen por card */
+.foundation::after {
+    background-image: url("img/foundation.jpeg");
+}
+
+.momentum::after {
+    background-image: url("img/momentum.jpg");
+}
+
+.rebuild::after {
+    background-image: url("img/rebuild.jpg");
+}
+
+.evolve::after {
+    background-image: url("img/evolve.jpg");
+}
+.hero.FOUNDATION {
+    background-image: url("img/foundation.jpeg");
+}
+
+.hero.MOMENTUM {
+    background-image: url("img/momentum.jpg");
+}
+
+.hero.REBUILD {
+    background-image: url("img/rebuild.jpg");
+}
+
+.hero.EVOLVE {
+    background-image: url("img/evolve.jpg");
+}
+
+/* Mantener difuminado como antes */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* menos blur para que se note la imagen */
+    backdrop-filter: blur(5px);
+    z-index: 0;
+}
+
+/* Hacer que el precio quede visible */
+.plan-price {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ff6a2f;
+    z-index: 2;
+}
+.help-plan {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.help-plan p {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.btn-outline {
+    border: 2px solid #ff6a2f;
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #ff6a2f;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #ff6a2f;
+    color: white;
+}
+/* Listas */
+.plan-list li,
+.payment-options li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Caja de contacto */
+.contact-box {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.contact-box p {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.contact-box .btn {
+    padding: 14px 26px;
+    background: #ff6a2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+.plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.price-box {
+    text-align: right;
+}
+
+.main-price {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ff6a2f;
+    display: block;
+}
+
+.promo-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffffcc;
+}
+
+.promo-price strong {
+    color: #ff6a2f;
+}
+/* ======================== */
+/*   TABLA COMPARATIVA PRO  */
+/* ======================== */
+
+.comparison-table {
+    overflow-x: auto;
+    margin-top: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+table thead {
+    background: linear-gradient(90deg, #ff6a00, #ff3c00);
+}
+
+table thead th {
+    padding: 16px;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+table tbody td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+    color: #d6d6d6;
+}
+
+table tbody tr:nth-child(even) {
+    background: #0f0f0f;
+}
+
+table tbody tr:hover {
+    background: rgba(255, 90, 20, 0.08);
+}
+/* ===== Fondo del formulario ===== */
+/* ============================================================
+   FORMULARIO - NO SÉ QUÉ PLAN ELEGIR
+   ============================================================ */
+
+/* HEADER EXCLUSIVO DEL FORMULARIO */
+.hero.FORM-PLAN {
+    height: 45vh;
+    background: url('img/form-header.jpg') center/cover no-repeat; /* Cambiá la imagen si querés */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+/* Overlay suave */
+.hero.FORM-PLAN::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    z-index: 0;
+}
+
+.hero.FORM-PLAN h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+/* ============================================================
+   SECCIÓN DEL FORMULARIO
+   ============================================================ */
+
+.form-section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px 25px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    position: relative;
+    z-index: 3;
+}
+
+.form-section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Caja del formulario */
+.form-box {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Etiquetas */
+.form-box label {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Inputs y selects */
+.form-box input,
+.form-box select,
+.form-box textarea {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.88);
+    color: #000;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Textarea */
+.form-box textarea {
+    resize: vertical;
+}
+
+/* Botón */
+.form-box .btn,
+button.btn {
+    background: #04c8c4;
+    color: #000;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.25s;
+}
+
+.form-box .btn:hover {
+    background: #02b0ad;
+    transform: scale(1.03);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer p {
+    text-align: center;
+    padding: 40px 0;
+    opacity: 0.7;
+    color: #fff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .hero.FORM-PLAN h1 {
+        font-size: 2.4rem;
+    }
+
+    .form-section {
+        margin: 20px;
+        padding: 25px 15px;
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+}
+/* FORZAR VISIBILIDAD DEL FORMULARIO */
+.form-section,
+.form-box,
+.form-section * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+/* =============================== */
+/*        F O R M   P A G E        */
+/* =============================== */
+
+/* ---------------------------------------- */
+/*   ESTILO B — FUTURISTA NEON / CYBER      */
+/* ---------------------------------------- */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+}
+
+/* ---------------------------------------- */
+/* HERO FORM                                */
+/* ---------------------------------------- */
+
+.hero.FORM-PLAN {
+    position: relative;
+    padding: 110px 20px 70px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #140016, #0a0a0a);
+    overflow: hidden;
+}
+
+/* Efecto neon radial */
+.hero.FORM-PLAN::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center,
+        rgba(255, 90, 20, 0.2),
+        transparent 60%);
+    z-index: 0;
+}
+
+/* Glitch lines */
+.hero.FORM-PLAN::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 90, 20, 0.06),
+        rgba(255, 90, 20, 0.06) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.hero.FORM-PLAN h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 2.9rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-shadow: 0 0 10px rgba(255,90,20,0.6);
+}
+
+/* ---------------------------------------- */
+/* SECTION + CARD                            */
+/* ---------------------------------------- */
+
+.form-section {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 40px 30px;
+
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 90, 20, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+
+    box-shadow: 0 0 35px rgba(255, 90, 20, 0.15);
+    position: relative;
+    z-index: 3;
+}
+
+.form-description {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    color: #dcdcdc;
+    opacity: 0.85;
+}
+
+/* ---------------------------------------- */
+/* FORM                                      */
+/* ---------------------------------------- */
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-box label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #ffb48d;
+    text-shadow: 0 0 6px rgba(255, 120, 60, 0.6);
+}
+
+/* Inputs / Select / Textarea */
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+
+    border: 1px solid rgba(255, 90, 20, 0.35);
+    border-radius: 12px;
+
+    backdrop-filter: blur(6px);
+    transition: 0.3s ease;
+}
+
+/* FOCUSED INPUT */
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+    border-color: #ff5a14;
+    box-shadow: 0 0 14px rgba(255, 90, 20, 0.55);
+    background: rgba(255,255,255,0.12);
+}
+
+/* Textarea más alto */
+.form-box textarea {
+    min-height: 140px;
+    resize: none;
+}
+
+/* ---------------------------------------- */
+/* BOTÓN ENVIAR                              */
+/* ---------------------------------------- */
+
+.form-box .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.25rem;
+    font-weight: 900;
+
+    background: linear-gradient(135deg, #ff5d1a, #ff2e00);
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+
+    box-shadow: 0 0 20px rgba(255,80,20,0.4),
+                0 0 40px rgba(255,80,20,0.2);
+}
+
+.form-box .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 28px rgba(255,90,20,0.6),
+                0 0 55px rgba(255,90,20,0.35);
+}
+
+/* ---------------------------------------- */
+/* MENSAJE ÉXITO                             */
+/* ---------------------------------------- */
+
+.form-success {
+    margin-top: 20px;
+    background: rgba(0,255,120,0.15);
+    border-left: 4px solid #00ff88;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    color: #00ff88;
+    text-shadow: 0 0 8px rgba(0,255,120,0.5);
+}
+/* ==========
+   ESTILO BASE
+   ========== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    color: #fff;
+}
+
+/* ==========
+   HERO
+   ========== */
+.hero.FORM-PLAN {
+    padding: 120px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #000, #0f0f0f);
+}
+
+.hero.FORM-PLAN h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* ==========
+   SECCIÓN DEL FORMULARIO
+   ========== */
+.form-section {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.form-section h2 {
+    font-size: 24px;
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+/* ==========
+   FORM BOX (tarjeta futurista)
+   ========== */
+.form-box {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    animation: fadeIn 1s ease-out;
+}
+
+/* ==========
+   LABELS
+   ========== */
+label {
+    display: block;
+    text-align: left;
+    margin: 15px 0 6px;
+    font-size: 15px;
+    opacity: 0.85;
+}
+
+/* ==========
+   INPUTS / SELECT / TEXTAREA
+   ========== */
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #00c3ff;
+    box-shadow: 0 0 8px #00c3ff;
+}
+
+/* ==========
+   BOTÓN PRINCIPAL
+   ========== */
+.btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 20px;
+    background: #00c3ff;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00e1ff;
+    box-shadow: 0 0 12px #00e1ff;
+}
+
+/* ==========
+   ANIMACIÓN FADE IN
+   ========== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========
+   FOOTER
+   ========== */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    opacity: 0.7;
+    font-size: 14px;
+}
+.navbar {
+    position: sticky; /* o fixed si querés siempre arriba */
+    top: 0;
+    z-index: 1000;
+}
+html {
+    scroll-behavior: smooth;
+}
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 2000;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+.plan-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+body {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    background-color: #0a0a0a;
+}
+h1, h2, h3 {
+    font-weight: 900;
+}
+p, li, label {
+    font-weight: 400;
+}
+.plan-card {
+    background: linear-gradient(145deg, #111111, #1a1a1a);
+    border-radius: 18px;
+    padding: 30px;
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    transition: 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
+}
+.btn {
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #ffd700;
+    color: #0a0a0a;
+    box-shadow: 0 0 15px rgba(255,215,0,0.7);
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%);
+    animation: bgPulse 6s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes bgPulse {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(1.05); opacity: 0.6; }
+}
+button {
+    min-height: 48px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+}
+input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 12px rgba(0, 150, 255, 0.6);
+    border: 1px solid #00bfff;
+    background: #1a1a1a;
+    color: #fff;
+}
+button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.05);
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.5s ease;
+}
+
+button:hover::after {
+    transform: rotate(45deg) scale(1);
+}
+@keyframes breathe {
+    0% { background-position: 50% 50%; }
+    50% { background-position: 52% 48%; }
+    100% { background-position: 50% 50%; }
+}
+
+body {
+    background: radial-gradient(circle, #0a0a0a 0%, #0f0f0f 100%);
+    background-size: 200% 200%;
+    animation: breathe 12s ease-in-out infinite;
+}
+.plan-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 180, 255, 0.25);
+    border-color: #00bfff;
+    transition: all 0.4s ease;
+}
+.step.completed::after {
+    content: "✔";
+    color: #00ffcc;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    opacity: 0;
+    animation: appearCheck 0.5s forwards;
+}
+
+@keyframes appearCheck {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+}
+.hero.FORM-PLAN h1 {
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
