@@ -1,0 +1,151 @@
+/* ===== WIZARD PROFESIONAL NEGRO/BLANCO/DORADO ===== */
+
+#wizard {
+    background: #111; /* negro elegante */
+    padding: 50px 25px;
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 60px auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    font-family: 'Inter', sans-serif;
+    color: #fff; /* textos blancos */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fondo animado suave tipo "respiración" */
+#wizard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%);
+    animation: pulseBg 6s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes pulseBg {
+    0% { transform: scale(1); opacity: 0.2; }
+    100% { transform: scale(1.05); opacity: 0.4; }
+}
+
+/* Contenido del wizard */
+#wizard .step {
+    display: none;
+    position: relative;
+    z-index: 2;
+    animation: fadeStep 0.5s ease forwards;
+}
+
+#wizard .step.active {
+    display: block;
+}
+
+@keyframes fadeStep {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Títulos de cada paso */
+#wizard h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Inputs y selects */
+#wizard input,
+#wizard select,
+#wizard textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #222; /* oscuro para destacar en fondo negro */
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+#wizard input:focus,
+#wizard select:focus,
+#wizard textarea:focus {
+    border-color: #ffd700; /* dorado */
+    box-shadow: 0 0 12px rgba(255,215,0,0.3);
+}
+
+/* Placeholder */
+#wizard input::placeholder,
+#wizard textarea::placeholder {
+    color: #aaa;
+}
+
+/* Botones */
+#wizard .btn-next,
+#wizard .btn-prev,
+#wizard .btn-submit {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 2px solid #ffd700;
+    background: #111;
+    color: #ffd700;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+#wizard .btn-next:hover,
+#wizard .btn-prev:hover,
+#wizard .btn-submit:hover {
+    background: #ffd700;
+    color: #111;
+}
+
+/* Contenedor de botones */
+#wizard .button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Ocultar botón anterior en primer paso */
+#wizard .btn-prev:first-of-type {
+    display: none;
+}
+
+/* Progress bar */
+#wizard .progress-container {
+    width: 100%;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+#wizard .progress-bar {
+    height: 100%;
+    width: 0;
+    background: #ffd700;
+    transition: width 0.4s ease;
+}
+
+/* Mensajes de error */
+.wizard-error {
+    color: #ff5555;
+    font-size: 0.95rem;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+
+
+
+
+
+
+
+

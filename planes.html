@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Planes – AXYUS METHOD</title>
+
+<!-- Fuente elegante -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+body { background: #fdfbf5; color:#222; }
+
+/* ===== HERO ===== */
+.hero {
+    background: #fff8f0;
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+.hero h1 { font-family:'Playfair Display', serif; font-size:3rem; color:#b88746; }
+
+/* ===== FORM WIZARD ===== */
+#wizard-form {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.step {
+    display: none;
+}
+
+.step.active { display: block; }
+
+.step h2 {
+    font-family:'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #b88746;
+}
+
+/* Inputs y selects */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+textarea { resize: none; }
+
+/* Botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+button {
+    padding: 12px 25px;
+    border:none;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+button.next { background:#b88746; color:#fff; }
+button.next:hover { background:#a5733f; }
+button.prev { background:#ccc; color:#222; }
+button.prev:hover { background:#bbb; }
+
+/* Progressbar */
+#progressbar {
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin-bottom: 30px;
+}
+#progressbar li {
+    list-style-type:none;
+    width:100%;
+    position: relative;
+    text-align:center;
+    font-size:0.85rem;
+    color:#aaa;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    display:block;
+    background:#ccc;
+    border-radius:50%;
+    margin:0 auto 10px;
+    color:#fff;
+}
+#progressbar li.active { color:#b88746; }
+#progressbar li.active:before { background:#b88746; }
+
+/* Success message */
+#success-message {
+    display:none;
+    text-align:center;
+    font-size:1.3rem;
+    padding:20px;
+    background: #f0fff4;
+    border: 2px solid #38b000;
+    border-radius: 10px;
+    color:#222;
+    margin-top:20px;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .button-group { flex-direction: column; gap:10px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<h1>Formulario de Planes AXYUS METHOD</h1>
+<p>Completá los pasos y te ayudamos a elegir tu plan ideal.</p>
+</header>
+
+<form id="wizard-form" action="https://formsubmit.co/teamaxismethod@gmail.com" method="POST">
+
+    <!-- FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_subject" value="Nuevo formulario PLAN AXIS">
+
+    <!-- PROGRESS BAR -->
+    <ul id="progressbar">
+        <li class="active">Datos personales</li>
+        <li>Objetivos</li>
+        <li>Nutrición</li>
+        <li>Salud</li>
+        <li>Confirmación</li>
+    </ul>
+
+    <!-- STEP 1 -->
+    <div class="step active">
+        <h2>Datos Personales</h2>
+        <label>Nombre completo*</label>
+        <input type="text" name="Nombre" required>
+
+        <label>Edad*</label>
+        <input type="number" name="Edad" min="10" max="80" required>
+
+        <label>Correo electrónico*</label>
+        <input type="email" name="Email" required>
+
+        <div class="button-group">
+            <button type="button" class="next">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+        <h2>Objetivos</h2>
+        <label>Objetivo principal*</label>
+        <select name="Objetivo" required>
+            <option value="">Seleccionar…</option>
+            <option>Perder grasa</option>
+            <option>Ganar masa muscular</option>
+            <option>Tonificar</option>
+            <option>Mejorar salud</option>
+            <option>Mejorar rendimiento</option>
+        </select>
+
+        <label>Experiencia entrenando*</label>
+        <select name="Experiencia" required>
+            <option value="">Seleccionar…</option>
+            <option>Principiante (0–6 meses)</option>
+            <option>Intermedio (6–24 meses)</option>
+            <option>Avanzado (2+ años)</option>
+        </select>
+
+        <div class="button-group">
+            <button type="button" class="prev">Anterior</button>
+            <button type="button" class="next">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+        <h2>Nutrición</h2>
+        <label>Alimentación actual</label>
+        <textarea name="Alimentacion" rows="3"></textarea>
+
+        <label>Alergias o intolerancias</label>
+        <textarea name="Alergias" rows="2"></textarea>
+
+        <div class="button-group">
+            <button type="button" class="prev">Anterior</button>
+            <button type="button" class="next">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+        <h2>Salud y lesiones</h2>
+        <label>Lesiones o limitaciones</label>
+        <textarea name="Lesiones" rows="2"></textarea>
+
+        <label>Disponibilidad horaria para entrenar</label>
+        <select name="Disponibilidad">
+            <option value="">Seleccionar…</option>
+            <option>Mañana</option>
+            <option>Tarde</option>
+            <option>Noche</option>
+            <option>Flexible</option>
+        </select>
+
+        <div class="button-group">
+            <button type="button" class="prev">Anterior</button>
+            <button type="button" class="next">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+        <h2>Confirmación</h2>
+        <p>Revisá tus datos y presioná Enviar para recibir tu recomendación.</p>
+
+        <div class="button-group">
+            <button type="button" class="prev">Anterior</button>
+            <button type="submit" class="next">Enviar</button>
+        </div>
+    </div>
+
+</form>
+
+<div id="success-message">¡Gracias! Tu formulario ha sido enviado correctamente.</div>
+
+<script>
+// Wizard JS
+const steps = document.querySelectorAll(".step");
+const nextBtns = document.querySelectorAll(".next");
+const prevBtns = document.querySelectorAll(".prev");
+const progressbar = document.querySelectorAll("#progressbar li");
+
+let currentStep = 0;
+
+function showStep(n){
+    steps.forEach((s,i)=> s.classList.remove("active"));
+    steps[n].classList.add("active");
+    progressbar.forEach((p,i)=> i <= n ? p.classList.add("active") : p.classList.remove("active"));
+}
+
+nextBtns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        if(currentStep < steps.length-1){
+            currentStep++;
+            showStep(currentStep);
+        }
+    });
+});
+
+prevBtns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        if(currentStep > 0){
+            currentStep--;
+            showStep(currentStep);
+        }
+    });
+});
+
+// Show success message on submit
+const form = document.getElementById("wizard-form");
+form.addEventListener("submit", e=>{
+    e.preventDefault();
+    const formData = new FormData(form);
+    // Enviar usando FormSubmit
+    fetch(form.action,{
+        method: "POST",
+        body: formData,
+        headers: { 'Accept':'application/json' }
+    }).then(response=>{
+        if(response.ok){
+            document.getElementById("wizard-form").style.display="none";
+            document.getElementById("success-message").style.display="block";
+            form.reset();
+        } else {
+            alert("Hubo un error, intentá nuevamente.");
+        }
+    }).catch(()=>{ alert("Hubo un error, intentá nuevamente."); });
+});
+</script>
+
+</body>
+</html>

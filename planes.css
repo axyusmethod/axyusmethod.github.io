@@ -1,0 +1,129 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fefcf7;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header.hero.PLANES {
+  background: linear-gradient(135deg, #fff8f0, #fff1e0);
+  text-align: center;
+  padding: 100px 20px 60px;
+  position: relative;
+}
+
+header.hero.PLANES h1 {
+  font-size: 3rem;
+  color: #b8860b;
+  margin-bottom: 10px;
+}
+
+header.hero.PLANES p {
+  font-size: 1.3rem;
+  color: #444;
+}
+
+/* Wizard Form */
+.wizard-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.wizard-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.step {
+  display: none;
+  flex-direction: column;
+}
+
+.step.active {
+  display: flex;
+}
+
+.wizard-form h2 {
+  margin-bottom: 20px;
+  color: #b8860b;
+  font-size: 1.8rem;
+}
+
+.wizard-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.wizard-form input,
+.wizard-form select,
+.wizard-form textarea {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.wizard-form textarea {
+  resize: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.next-btn,
+.prev-btn,
+.submit-btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn, .submit-btn {
+  background: #b8860b;
+  color: white;
+}
+
+.next-btn:hover, .submit-btn:hover {
+  background: #daa520;
+}
+
+.prev-btn {
+  background: #eee;
+  color: #444;
+}
+
+.prev-btn:hover {
+  background: #ddd;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.progress-bar .progress {
+  width: 0%;
+  height: 100%;
+  background: #b8860b;
+  transition: 0.3s ease;
+}

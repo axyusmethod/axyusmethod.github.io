@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configura tu Plan | AXYUS METHOD</title>
+  <link rel="stylesheet" href="stylepremium.css">
+  <script src="wizard.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR PREMIUM -->
+  <nav class="navbar">
+    <div class="nav-logo">AXYUS METHOD</div>
+    <ul class="nav-links">
+      <li><a href="index.html">INICIO</a></li>
+      <li><a href="index.html#vision">VISIÓN</a></li>
+      <li><a href="index.html#method">MÉTODO</a></li>
+      <li><a href="index.html#plans">PLANES</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION (Versión Corta con Blur y Sombra) -->
+  <header class="hero" style="min-height: 50vh;">
+    <!-- Fondo con animación revealClean y blurAndDarken igual que indexpremium -->
+    <div class="hero-bg"
+      style="animation: revealClean 0.5s ease-in-out forwards 0.5s, blurAndDarken 1s ease-in-out forwards 1.5s;"></div>
+
+    <div class="hero-content" style="opacity: 0; animation: showContent 1s ease-out forwards 1.5s;">
+      <!-- Texto con sombra pedida -->
+      <h1 style="font-size: 3rem; text-shadow: 0 0 30px rgba(0,0,0,0.9);">CONFIGURA TU PLAN</h1>
+      <p style="text-shadow: 0 0 10px rgba(0,0,0,0.9);">PERSONALIZA TU EXPERIENCIA</p>
+    </div>
+  </header>
+
+  <section class="section-dark" style="padding-top: 20px; padding-bottom: 100px;">
+    <div class="content-wrapper">
+
+      <div id="wizard" class="wizard-premium">
+
+        <!-- PROGRESS BAR PREMIUM -->
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
+
+        <form id="planWizardForm" action="https://formsubmit.co/teamaxismethod@gmail.com" method="POST">
+
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nuevo formulario: Wizard Plan">
+          <input type="hidden" name="_next" value="https://axis-method.com/gracias.html">
+
+          <!-- STEP 1: Datos Generales -->
+          <div class="step active">
+            <h3>01. DATOS GENERALES</h3>
+            <div class="input-group">
+              <input type="text" name="Nombre" required placeholder=" ">
+              <label>NOMBRE COMPLETO</label>
+            </div>
+            <div class="input-group">
+              <input type="number" name="Edad" required placeholder=" ">
+              <label>EDAD</label>
+            </div>
+            <div style="display: flex; gap: 20px;">
+              <div class="input-group" style="flex: 1;">
+                <input type="number" name="Altura" placeholder=" ">
+                <label>ALTURA (CM)</label>
+              </div>
+              <div class="input-group" style="flex: 1;">
+                <input type="number" name="Peso" placeholder=" ">
+                <label>PESO ACTUAL (KG)</label>
+              </div>
+            </div>
+            <div class="input-group">
+              <select name="Sexo" required class="premium-select">
+                <option value="" disabled selected>SEXO</option>
+                <option>Hombre</option>
+                <option>Mujer</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <input type="text" name="Ubicacion" required placeholder=" ">
+              <label>PAÍS / CIUDAD</label>
+            </div>
+            <div class="button-group">
+              <button type="button" class="btn-next btn-card invert" style="width: 100%;">SIGUIENTE</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Objetivo (Claridad Total) -->
+          <div class="step">
+            <h3>02. OBJETIVO (CLARIDAD TOTAL)</h3>
+            <div class="input-group">
+              <select name="Objetivo_Principal" required class="premium-select">
+                <option value="" disabled selected>¿CUÁL ES TU OBJETIVO PRINCIPAL?</option>
+                <option>Ganar masa muscular</option>
+                <option>Bajar grasa</option>
+                <option>Recomposición corporal</option>
+                <option>Mejorar fuerza</option>
+                <option>Volver a entrenar</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <textarea name="Motivo_Objetivo" rows="2" placeholder=" " required></textarea>
+              <label>¿POR QUÉ QUERÉS LOGRAR ESTO?</label>
+            </div>
+            <div class="input-group">
+              <select name="Importancia_Escala" required class="premium-select">
+                <option value="" disabled selected>IMPORTANCIA (ESCALA 1-10)</option>
+                <option>1 - Baja</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5 - Media</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10 - Máxima prioridad</option>
+              </select>
+              <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">¿Qué tan importante es para vos lograrlo
+                ahora?</p>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px;">
+              <button type="button" class="btn-prev btn-card" style="width: 50%;">ANTERIOR</button>
+              <!-- Temporalmente enviar hasta tener más secciones -->
+              <button type="button" class="btn-next btn-card invert" style="width: 50%;">SIGUIENTE</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Historial de Entrenamiento -->
+          <div class="step">
+            <h3>03. HISTORIAL DE ENTRENAMIENTO</h3>
+
+            <div class="input-group">
+              <select name="Entrenas_Actualmente" required class="premium-select">
+                <option value="" disabled selected>¿ENTRENÁS ACTUALMENTE?</option>
+                <option>Sí</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <textarea name="Historia_Entrenamiento" rows="2" placeholder=" "></textarea>
+              <label>TIEMPO ENTRENANDO (CONSTANCIA)</label>
+            </div>
+
+            <div class="input-group">
+              <select name="Lugar_Entrenamiento" required class="premium-select">
+                <option value="" disabled selected>¿DÓNDE ENTRENÁS?</option>
+                <option>Gimnasio</option>
+                <option>Casa</option>
+                <option>Ambos</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <select name="Dias_Disponibles" required class="premium-select">
+                <option value="" disabled selected>DÍAS REALES DISPONIBLES</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <select name="Tipo_Entrenamiento_Previo" required class="premium-select">
+                <option value="" disabled selected>TIPO DE ENTRENAMIENTO PREVIO</option>
+                <option>Pesas / Musculación</option>
+                <option>Funcional / HIIT</option>
+                <option>CrossFit</option>
+                <option>Deportes</option>
+                <option>Calistenia</option>
+                <option>Nada / Sedentario</option>
+              </select>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px;">
+              <button type="button" class="btn-prev btn-card" style="width: 50%;">ANTERIOR</button>
+              <button type="button" class="btn-next btn-card invert" style="width: 50%;">SIGUIENTE</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: Lesiones y Limitaciones -->
+          <div class="step">
+            <h3>04. LESIONES Y LIMITACIONES</h3>
+
+            <div class="input-group">
+              <textarea name="Lesiones_Detalle" rows="2" placeholder=" " required></textarea>
+              <label>¿TENÉS O TUVISTE ALGUNA LESIÓN? (Si no, poné "-")</label>
+            </div>
+
+            <div class="input-group">
+              <textarea name="Ejercicio_Molesto" rows="2" placeholder=" " required></textarea>
+              <label>¿ALGÚN EJERCICIO QUE TE MOLESTE O NO TE GUSTE?</label>
+            </div>
+
+            <div class="input-group">
+              <select name="Dolor_Entrenar" required class="premium-select">
+                <option value="" disabled selected>¿SENTÍS DOLOR AL ENTRENAR O DESPUÉS?</option>
+                <option>Sí, seguido</option>
+                <option>A veces</option>
+                <option>Rara vez</option>
+                <option>Nunca</option>
+              </select>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px;">
+              <button type="button" class="btn-prev btn-card" style="width: 50%;">ANTERIOR</button>
+              <button type="button" class="btn-next btn-card invert" style="width: 50%;">SIGUIENTE</button>
+            </div>
+          </div>
+
+          <!-- STEP 5: Alimentación Real -->
+          <div class="step">
+            <h3>05. ALIMENTACIÓN REAL</h3>
+
+            <div class="input-group">
+              <input type="text" name="Comidas_Dia" required placeholder=" ">
+              <label>¿CUÁNTAS COMIDAS HACÉS POR DÍA?</label>
+            </div>
+
+            <div class="input-group">
+              <input type="text" name="Horarios_Comidas" required placeholder=" ">
+              <label>¿A QUÉ HORARIOS COMÉS APROX?</label>
+            </div>
+
+            <div class="input-group">
+              <textarea name="Alimentos_Frecuentes" rows="2" placeholder=" " required></textarea>
+              <label>ALIMENTOS MÁS FRECUENTES (LIBRE)</label>
+            </div>
+
+            <div class="input-group">
+              <textarea name="Alimentos_No_Gustan" rows="2" placeholder=" "></textarea>
+              <label>ALIMENTOS QUE NO TE GUSTAN / NO TOLERÁS</label>
+            </div>
+
+            <div class="input-group">
+              <input type="text" name="Alergias" placeholder=" ">
+              <label>¿SOS ALÉRGICO A ALGÚN ALIMENTO?</label>
+            </div>
+
+            <div class="input-group">
+              <select name="Dificultad_Alimentacion" required class="premium-select">
+                <option value="" disabled selected>¿TE CUESTA COMER O DEJAR DE COMER?</option>
+                <option>Me cuesta comer suficiente (como poco)</option>
+                <option>Me cuesta dejar de comer (como mucho)</option>
+                <option>Ninguno / Normal</option>
+                <option>A veces uno, a veces otro</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <select name="Ansiedad_Comida" required class="premium-select">
+                <option value="" disabled selected>¿TENÉS ANSIEDAD CON LA COMIDA?</option>
+                <option>Sí, muy seguido</option>
+                <option>A veces</option>
+                <option>Rara vez</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px;">
+              <button type="button" class="btn-prev btn-card" style="width: 50%;">ANTERIOR</button>
+              <button type="button" class="btn-next btn-card invert" style="width: 50%;">SIGUIENTE</button>
+            </div>
+          </div>
+
+          <!-- STEP 6: Estilo de Vida -->
+          <div class="step">
+            <h3>06. ESTILO DE VIDA</h3>
+
+            <div class="input-group">
+              <input type="text" name="Horas_Sueno" required placeholder=" ">
+              <label>¿CUÁNTAS HORAS DORMÍS POR NOCHE?</label>
+            </div>
+
+            <div class="input-group">
+              <select name="Nivel_Actividad" required class="premium-select">
+                <option value="" disabled selected>¿TU DÍA ES MÁS BIEN?</option>
+                <option>Activo (Movimiento constante)</option>
+                <option>Moderado (Algo de movimiento)</option>
+                <option>Sedentario (Mucho tiempo sentado)</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <select name="Caminata_Diaria" required class="premium-select">
+                <option value="" disabled selected>¿CAMINÁS MUCHO DURANTE EL DÍA?</option>
+                <option>Sí, mucho</option>
+                <option>Normal / A veces</option>
+                <option>No, casi nada</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <select name="Nivel_Estres" required class="premium-select">
+                <option value="" disabled selected>NIVEL DE ESTRÉS DIARIO (1-10)</option>
+                <option>1 - Muy bajo</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5 - Moderado</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10 - Muy alto</option>
+              </select>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px;">
+              <button type="button" class="btn-prev btn-card" style="width: 50%;">ANTERIOR</button>
+              <button type="button" class="btn-next btn-card invert" style="width: 50%;">SIGUIENTE</button>
+            </div>
+          </div>
+
+          <!-- STEP 7: Mentalidad -->
+          <div class="step">
+            <h3>07. MENTALIDAD</h3>
+
+            <div class="input-group">
+              <textarea name="Mayor_Dificultad" rows="2" placeholder=" " required></textarea>
+              <label>¿QUÉ ES LO QUE MÁS TE CUESTA AL CAMBIAR TU FÍSICO?</label>
+            </div>
+
+            <div class="input-group">
+              <textarea name="Falla_Previa" rows="2" placeholder=" " required></textarea>
+              <label>¿QUÉ TE HIZO FALLAR OTRAS VECES?</label>
+            </div>
+
+            <div class="input-group">
+              <textarea name="Expectativas_Coach" rows="2" placeholder=" " required></textarea>
+              <label>¿QUÉ ESPERÁS DE NOSOTROS COMO TU COACH?</label>
+            </div>
+
+            <div class="input-group">
+              <select name="Preferencia_Plan" required class="premium-select">
+                <option value="" disabled selected>¿PREFERÍS UN PLAN...?</option>
+                <option>Flexible</option>
+                <option>Más estructurado</option>
+                <option>Un mix</option>
+              </select>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px;">
+              <button type="button" class="btn-prev btn-card" style="width: 50%;">ANTERIOR</button>
+              <button type="button" class="btn-next btn-card invert" style="width: 50%;">SIGUIENTE</button>
+            </div>
+          </div>
+
+          <!-- STEP 8: Compromiso (Final) -->
+          <div class="step">
+            <h3>08. COMPROMISO</h3>
+
+            <div class="input-group">
+              <select name="Disposicion" required class="premium-select">
+                <option value="" disabled selected>¿ESTÁS DISPUESTO/A A ENTRENAR SIN GANAS, AJUSTAR HÁBITOS,
+                  COMUNICARTE?</option>
+                <option>Sí, estoy dispuesto/a</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <select name="Entendimiento_Resultados" required class="premium-select">
+                <option value="" disabled selected>¿ENTENDÉS QUE LOS RESULTADOS DEPENDEN DE TU CONSTANCIA?</option>
+                <option>Sí, lo entiendo</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <input type="text" name="Compromiso_Texto" required placeholder=" " pattern=".*Me comprometo.*">
+              <label>ESCRIBÍ: "Me comprometo a seguir el proceso de Axyus Method"</label>
+            </div>
+
+            <div class="input-group">
+              <input type="email" name="Email" required placeholder=" ">
+              <label>TU EMAIL</label>
+            </div>
+
+            <div class="input-group">
+              <input type="tel" name="Telefono" required placeholder=" ">
+              <label>TU TELÉFONO (WhatsApp)</label>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px;">
+              <button type="button" class="btn-prev btn-card" style="width: 50%;">ANTERIOR</button>
+              <button type="submit" class="btn-submit btn-card invert" style="width: 50%;">ENVIAR SOLICITUD</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-minimal">
+    <div class="footer-legal-links">
+      <a href="terminos.html">Términos y Condiciones</a>
+      <span class="separator">|</span>
+      <a href="privacidad.html">Política de Privacidad</a>
+    </div>
+    <p>© 2025 AXYUS METHOD. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/5493515722430" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000">
+      <path
+        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+    </svg>
+  </a>
+
+</body>
+
+</html>
